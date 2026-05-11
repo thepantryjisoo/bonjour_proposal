@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bonjour_proposal</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#F7F7F8;
+  --white:#fff;
+  --red:#C4463A;
+  --dark:#1B1B1B;
+  --text:#3A3A3A;
+  --sub:#6B6E75;
+  --light:#9CA0A8;
+  --line:#E8E9EC;
+  --card:#F0F0F2;
+  --red-bg:#F5EFED;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.w{max-width:640px;margin:0 auto;padding:0 24px}
+
+/* ── COVER ── */
+.cover{min-height:100dvh;display:flex;flex-direction:column;justify-content:space-between;padding:48px 0 40px}
+.cover-bar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;font-size:11px;letter-spacing:.04em;color:var(--sub)}
+.cover-bar .dot{color:var(--red);font-size:14px;margin-right:4px;vertical-align:middle}
+.cover-bar b{color:var(--dark);font-weight:500}
+.cover-mid{padding:20px 0}
+.tag{color:var(--red);font-size:12px;font-weight:500;letter-spacing:.02em;margin-bottom:16px}
+.cover h1{font-size:clamp(26px,7vw,38px);font-weight:400;color:var(--dark);line-height:1.38;letter-spacing:-.03em;margin-bottom:24px}
+.cover h1 em{font-style:normal;color:var(--red);font-weight:400}
+.cover-desc{font-size:14px;line-height:1.9;color:var(--sub);font-weight:300}
+.cover-ft{border-top:1px solid var(--line);padding-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:20px 16px}
+.cover-ft dt{font-size:10px;font-weight:600;color:var(--light);letter-spacing:.06em;margin-bottom:2px}
+.cover-ft dd{font-size:13px;color:var(--dark);font-weight:400;line-height:1.5}
+
+/* ── SECTION ── */
+section{padding:56px 0 40px;border-top:1px solid var(--line)}
+.sec-tag{font-size:11px;color:var(--red);font-weight:500;letter-spacing:.03em;margin-bottom:4px}
+.sec-tag .dot{font-size:13px;margin-right:3px}
+section h2{font-size:clamp(20px,5vw,28px);font-weight:400;color:var(--dark);line-height:1.35;letter-spacing:-.02em;margin-bottom:6px}
+.sec-sub{font-size:13px;color:var(--sub);font-weight:300;margin-bottom:24px;line-height:1.7}
+
+/* ── BODY ── */
+p.b{font-size:14px;line-height:1.85;color:var(--text);font-weight:300;margin-bottom:10px}
+p.b strong{font-weight:500;color:var(--dark)}
+p.b em{font-style:normal;color:var(--red);font-weight:400}
+h3.sub{font-size:14px;font-weight:300;color:var(--dark);margin:24px 0 8px;line-height:1.5}
+h3.sub em{font-style:normal;color:var(--red);font-weight:300}
+
+/* ── STAT ── */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:24px;background:var(--white)}
+.st{text-align:center;padding:18px 6px}
+.st+.st{border-left:1px solid var(--line)}
+.st .n{font-size:clamp(18px,4vw,24px);font-weight:400;color:var(--dark);line-height:1.2}
+.st .l{font-size:10px;color:var(--light);margin-top:4px;line-height:1.4;font-weight:400}
+
+/* ── CALLOUT ── */
+.call{background:var(--red-bg);border-radius:8px;padding:18px 20px;margin:20px 0}
+.call strong{color:var(--red);font-weight:600;font-size:14px}
+.call p{font-size:13px;color:var(--text);line-height:1.75;margin-top:6px;font-weight:300}
+
+/* ── TABLE ── */
+.tw{overflow-x:auto;margin:16px 0 20px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{background:var(--card);color:var(--dark);font-weight:600;text-align:center;padding:10px 8px;border-bottom:1px solid var(--line)}
+tbody td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center;color:var(--text);font-weight:300}
+tbody tr:nth-child(even){background:rgba(0,0,0,.015)}
+td.l{text-align:left}
+td.s{font-weight:500;color:var(--dark)}
+td.r{color:var(--red);font-weight:600}
+td.xh{background:var(--red-bg)!important}
+
+/* ── PILLARS ── */
+.pills{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:24px;background:var(--white)}
+.pill{text-align:center;padding:16px 6px}
+.pill+.pill{border-left:1px solid var(--line)}
+.pill .t{font-size:9px;font-weight:600;color:var(--red);letter-spacing:.06em;margin-bottom:6px}
+.pill .v{font-size:12px;color:var(--dark);line-height:1.5;font-weight:400}
+
+/* ── OFFER TABLE ── */
+.offer td:first-child{text-align:left;font-weight:500;color:var(--dark);white-space:nowrap}
+.offer td{text-align:left;line-height:1.6}
+
+/* ── REV GRID ── */
+.revs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:24px}
+.rev{background:var(--white);padding:18px 16px}
+.rev .t{font-size:13px;font-weight:600;color:var(--red);margin-bottom:6px}
+.rev p{font-size:13px;line-height:1.7;color:var(--text);font-weight:300}
+
+/* ── PHASES ── */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+.ph{border:1px solid var(--line);border-radius:8px;padding:18px 14px;background:var(--white)}
+.ph .t{font-size:10px;font-weight:600;color:var(--red);letter-spacing:.02em;margin-bottom:4px}
+.ph .nm{font-size:16px;font-weight:400;color:var(--dark);margin-bottom:10px}
+.ph ul{list-style:none;margin-bottom:12px}
+.ph li{font-size:12px;line-height:1.6;color:var(--sub);padding-left:12px;position:relative;font-weight:300}
+.ph li::before{content:'−';position:absolute;left:0;color:var(--light)}
+.ph .g{font-size:11px;font-weight:600;color:var(--red)}
+
+/* ── RISKS ── */
+.risks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.rsk{background:var(--red-bg);border-radius:8px;padding:16px}
+.rsk strong{font-size:13px;color:var(--red);font-weight:600;display:block;margin-bottom:4px}
+.rsk p{font-size:12px;line-height:1.6;color:var(--text);font-weight:300}
+
+/* ── STEPS ── */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+.stp{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:18px 8px;text-align:center}
+.stp .n{font-size:18px;font-weight:400;color:var(--red)}
+.stp .nm{font-size:13px;font-weight:600;color:var(--dark);margin:4px 0}
+.stp .d{font-size:10px;color:var(--light);line-height:1.4;font-weight:300}
+
+/* ── CTA ── */
+.cta{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:36px 24px;text-align:center;margin:24px 0}
+.cta h3{font-size:clamp(17px,4vw,21px);font-weight:300;color:var(--dark);margin:0 0 10px;line-height:1.5;letter-spacing:-.01em}
+.cta p{font-size:12px;color:var(--light);line-height:1.6;font-weight:300}
+
+/* ── TOC ── */
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.ti{padding:14px 0;border-bottom:1px solid var(--line)}
+.ti:nth-child(odd){padding-right:16px}
+.ti:nth-child(even){padding-left:16px}
+.ti .n{font-weight:400;color:var(--red);margin-right:6px;font-size:13px}
+.ti .tt{font-size:14px;font-weight:500;color:var(--dark)}
+.ti .e{font-size:10px;color:var(--light);display:block;margin-top:2px;letter-spacing:.03em}
+
+.note{font-size:11px;color:var(--light);line-height:1.6;margin-top:8px;font-weight:300}
+.footer{padding:20px 0 48px;font-size:11px;color:var(--light);letter-spacing:.02em}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  .w{padding:0 20px}
+  .cover-ft{grid-template-columns:1fr 1fr;gap:16px}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .revs{grid-template-columns:1fr}
+  .phases{grid-template-columns:1fr}
+  .risks{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .toc{grid-template-columns:1fr}
+  .ti:nth-child(even){padding-left:0}
+  section{padding:36px 0 28px}
+  table{font-size:12px}
+  thead th,tbody td{padding:8px 6px}
+}
+</style>
+</head>
+<body>
+<div class="w">
+
+<!-- COVER -->
+<div class="cover">
+  <div>
+    <div class="cover-bar"><span><span class="dot">●</span> <b>MCN PARTNERSHIP PROPOSAL</b></span><span>2026.05 / Confidential</span></div>
+  </div>
+  <div class="cover-mid">
+    <p class="tag">FOR 봉주르하우스 @house.bonjour</p>
+    <h1>좋은 일상을 만드는 감각,<br><em>그 결이 닿을 수 있는</em><br>곳에 대해 정리했습니다.</h1>
+    <p class="cover-desc">이 제안서는 봉주르하우스님의 콘텐츠가 중국 플랫폼 샤오홍슈에서<br>어떤 가능성이 있을지 정리한 자료입니다.<br>읽어보시고, 관심이 생기시면 그때 이야기 나눠도 충분합니다.</p>
+  </div>
+  <dl class="cover-ft">
+    <div><dt>FROM</dt><dd>LADO Entertainment</dd></div>
+    <div><dt>FOR</dt><dd>봉주르하우스 (@house.bonjour)</dd></div>
+    <div><dt>PLATFORM</dt><dd>샤오홍슈 (Xiaohongshu)</dd></div>
+    <div><dt>DATE</dt><dd>May, 2026</dd></div>
+  </dl>
+</div>
+
+<!-- CONTENTS -->
+<section>
+  <p class="sec-tag">MCN PARTNERSHIP PROPOSAL</p>
+  <h2>목차</h2>
+  <p class="sec-sub">7개 챕터로 정리했습니다. 가볍게 읽어봐 주세요.</p>
+  <div class="toc">
+    <div class="ti"><span class="n">01</span><span class="tt">왜 봉주르하우스님인가</span><span class="e">WHY YOU</span></div>
+    <div class="ti"><span class="n">02</span><span class="tt">왜 지금 샤오홍슈인가</span><span class="e">WHY XIAOHONGSHU NOW</span></div>
+    <div class="ti"><span class="n">03</span><span class="tt">왜 라도(LADO)인가</span><span class="e">WHY LADO</span></div>
+    <div class="ti"><span class="n">04</span><span class="tt">라도가 해드릴 수 있는 것</span><span class="e">WHAT WE OFFER</span></div>
+    <div class="ti"><span class="n">05</span><span class="tt">수익 구조</span><span class="e">REVENUE MODEL</span></div>
+    <div class="ti"><span class="n">06</span><span class="tt">계약 조건</span><span class="e">TERMS</span></div>
+    <div class="ti"><span class="n">07</span><span class="tt">다음 단계</span><span class="e">NEXT STEP</span></div>
+  </div>
+</section>
+
+<!-- 01 WHY YOU -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 01 · WHY YOU</p>
+  <h2>왜 봉주르하우스님인가</h2>
+  <p class="sec-sub">꾸준함, 감각, 그리고 한결같은 결.</p>
+  <div class="stats">
+    <div class="st"><div class="n">13.8만</div><div class="l">인스타그램<br>팔로워</div></div>
+    <div class="st"><div class="n">910+</div><div class="l">누적<br>포스트</div></div>
+    <div class="st"><div class="n">2채널</div><div class="l">인스타·유튜브<br>운영</div></div>
+  </div>
+  <h3 class="sub"><em>꾸준함과 깊이를 동시에 갖고 계세요</em></h3>
+  <p class="b">봉주르하우스님은 2~3일 간격으로 꾸준히 콘텐츠를 올리시면서도, <strong>하나하나에 공감의 깊이가 담겨 있어요.</strong> 요리, 인테리어, 일상 — 빈도와 밀도를 동시에 유지하는 건 쉬운 일이 아닌데, 그게 자연스럽게 되는 분이시죠.</p>
+  <h3 class="sub"><em>보여주는 방식에 감각이 있는 분</em></h3>
+  <p class="b"><strong>무엇을 보여줄지, 어떤 톤으로 전달할지</strong>에 대한 감각이 이미 잡혀 있는 분이라고 느꼈어요. 910개 넘는 포스트를 쌓으면서도 결이 한결같다는 건, 그 자체로 브랜드예요. 샤오홍슈에서 이런 일관된 감성의 채널은 정말 드뭅니다.</p>
+  <h3 class="sub"><em>샤오홍슈와의 접점</em> — 라이프스타일이라는 공통 언어</h3>
+  <p class="b">샤오홍슈는 원래 <strong>라이프스타일 플랫폼</strong>이에요. 요리만, 인테리어만이 아니라 '좋은 일상'이라는 결 전체가 먹히는 곳이에요. 봉주르하우스님의 콘텐츠가 갖고 있는 톤이 이 플랫폼의 사용자들과 자연스럽게 맞닿아 있다고 봤습니다.</p>
+</section>
+
+<!-- 02 WHY XIAOHONGSHU -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 02 · WHY XIAOHONGSHU NOW</p>
+  <h2>왜 지금 샤오홍슈인가</h2>
+  <p class="sec-sub">3억 사용자, 검색 기반 콘텐츠 수명, 그리고 라이프스타일 카테고리의 기회</p>
+  <div class="stats">
+    <div class="st"><div class="n">3억+</div><div class="l">월간 활성 사용자<br>(MAU)</div></div>
+    <div class="st"><div class="n">72%</div><div class="l">MZ세대 비율</div></div>
+    <div class="st"><div class="n">12개월+</div><div class="l">검색 기반<br>콘텐츠 수명</div></div>
+  </div>
+  <h3 class="sub">인스타·유튜브와 결정적으로 다른 점 — <em>'검색 기반 자산'</em></h3>
+  <div class="tw"><table>
+    <thead><tr><th>구분</th><th>Instagram</th><th>YouTube</th><th>Xiaohongshu</th></tr></thead>
+    <tbody>
+      <tr><td>콘텐츠 수명</td><td>24~48시간</td><td>1~3개월</td><td class="r xh">12개월 이상</td></tr>
+      <tr><td>발견 경로</td><td>피드·릴스</td><td>추천·검색</td><td class="r xh">검색 중심</td></tr>
+      <tr><td>라이프스타일 적합도</td><td>높음</td><td>보통</td><td class="r xh">최적</td></tr>
+      <tr><td>전자상거래</td><td>외부 링크</td><td>외부 링크</td><td class="r xh">플랫폼 내장</td></tr>
+    </tbody>
+  </table></div>
+  <p class="b">인스타 릴스는 올리고 이틀이면 유입이 끊기지만, 샤오홍슈에서는 <strong>한 번 올린 콘텐츠가 1년 넘게 검색으로 계속 발견돼요.</strong> 봉주르하우스님처럼 꾸준히 쌓아오신 900개 이상의 콘텐츠가 검색 자산으로 계속 일하는 구조예요.</p>
+  <h3 class="sub"><em>한국 라이프스타일 콘텐츠의 선점 기회</em></h3>
+  <p class="b">뷰티·패션은 이미 경쟁이 치열하지만, <strong>'한국식 라이프스타일·홈 큐레이션' 카테고리는 아직 자리 잡은 크리에이터가 거의 없어요.</strong> 중국 MZ세대 사이에서 한국의 생활 감각에 대한 관심이 높아지고 있는 시점이에요.</p>
+</section>
+
+<!-- 03 WHY LADO -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 03 · WHY LADO</p>
+  <h2>왜 라도(LADO)인가</h2>
+  <p class="sec-sub">틱톡·샤오홍슈 본사 직계약 파트너. 실무를 맡기실 수 있는 구조입니다.</p>
+  <div class="pills">
+    <div class="pill"><div class="t">TIKTOK</div><div class="v">본사 직계약<br>공식 파트너</div></div>
+    <div class="pill"><div class="t">XIAOHONGSHU</div><div class="v">본사 직계약<br>공식 파트너</div></div>
+    <div class="pill"><div class="t">PHILOSOPHY</div><div class="v">Build identities<br>that last</div></div>
+    <div class="pill"><div class="t">FOCUS</div><div class="v">단기 성과보다<br>지속 가능한 성장</div></div>
+  </div>
+  <h3 class="sub"><em>본사 직계약</em> — 안전한 시작을 보장합니다</h3>
+  <p class="b">한국 크리에이터가 중국 플랫폼에서 자주 겪는 문제가 <strong>계정 잠김, 노출 제한, 정산 누락</strong>이에요. 비공식 대행사를 거치면서 생기는 일들이죠. 라도는 양쪽 플랫폼 <em>본사와 직접 계약한 공식 파트너</em>라서, 이런 리스크에서 보호받을 수 있습니다.</p>
+  <h3 class="sub"><em>크리에이터의 결을 지키는 것이 우선입니다</em></h3>
+  <p class="b">라도가 가장 신경 쓰는 건 단기 조회수가 아니라 <strong>크리에이터의 정체성을 훼손하지 않는 것</strong>이에요. 봉주르하우스님이 오래 지켜오신 톤과 감각 — 그걸 그대로 유지하면서 새로운 무대를 열어드리는 게 라도의 역할이라고 생각합니다.</p>
+  <h3 class="sub"><em>투명한 정산</em> — 한국 계좌, 원화, 정해진 정산일</h3>
+  <p class="b">중국에서 생긴 수익은 라도가 환전·세무 처리해서 <strong>한국 계좌에 원화로</strong> 넣어 드립니다. 환율이나 세금 신고는 신경 안 쓰셔도 돼요.</p>
+</section>
+
+<!-- 04 WHAT WE OFFER -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 04 · WHAT WE OFFER</p>
+  <h2>라도가 해드릴 수 있는 것</h2>
+  <p class="sec-sub">지금 하시는 활동은 그대로 하시면 됩니다. 중국 쪽은 라도가 맡습니다.</p>
+  <div class="tw"><table class="offer">
+    <thead><tr><th>영역</th><th>라도가 해드리는 것</th><th>봉주르하우스님이 하실 것</th></tr></thead>
+    <tbody>
+      <tr><td>콘텐츠 현지화</td><td class="l">중문 자막·제목·해시태그 + 키워드 리서치 + 썸네일 재제작</td><td class="l">지금처럼 한국어로 콘텐츠 제작</td></tr>
+      <tr><td>톤 & 무드 보존</td><td class="l">봉주르하우스 특유의 감성과 톤을 유지한 현지화</td><td class="l">최종 검수·확인</td></tr>
+      <tr><td>계정 운영</td><td class="l">업로드 스케줄링·댓글 관리·팬 소통</td><td class="l">월 1회 방향성 미팅</td></tr>
+      <tr><td>수익화</td><td class="l">브랜드 협찬 협상·정산 처리</td><td class="l">제안 승인</td></tr>
+      <tr><td>데이터 리포팅</td><td class="l">월간 성과 리포트 + 다음 달 전략 제안</td><td class="l">읽고 피드백</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call"><strong>톤을 훼손하는 현지화는 하지 않습니다.</strong><p>단순 번역이 아니라, 봉주르하우스님의 감성이 중국어로도 전달될 수 있게 신경 쓰는 게 라도의 역할이에요. 맞지 않는 협찬이나 콘텐츠를 무리하게 진행하지 않습니다.</p></div>
+</section>
+
+<!-- 05 REVENUE -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 05 · REVENUE MODEL</p>
+  <h2>수익 구조</h2>
+  <p class="sec-sub">라이프스타일 카테고리에서 가능한 수익 경로입니다.</p>
+  <div class="revs">
+    <div class="rev"><div class="t">01 · 브랜드 협찬</div><p>중국 라이프스타일·홈리빙 브랜드들이 감성 있는 한국 크리에이터와의 협업에 관심이 높아요. 봉주르하우스님의 결에 맞는 브랜드만 선별합니다.</p></div>
+    <div class="rev"><div class="t">02 · 전자상거래 연동</div><p>콘텐츠에 등장하는 살림 아이템·주방 도구·인테리어 소품 등을 샤오홍슈 샵에서 직접 연결할 수 있어요.</p></div>
+    <div class="rev"><div class="t">03 · 큐레이션 커머스</div><p>'봉주르하우스가 고른 것들' 같은 큐레이션 셀렉션은 샤오홍슈에서 반응이 좋은 포맷이에요. 신뢰 기반의 추천이 구매로 연결되는 구조예요.</p></div>
+    <div class="rev"><div class="t">04 · 콘텐츠 라이선싱</div><p>기존 콘텐츠의 중국 내 2차 활용(매거진, 브랜드 콜라보 등)도 라도가 연결해 드릴 수 있어요.</p></div>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>시나리오</th><th>샤오홍슈 팔로워</th><th>예상 월 수익</th><th>주요 수익원</th></tr></thead>
+    <tbody>
+      <tr><td>보수적</td><td>2만</td><td class="s">100~200만원</td><td>브랜드 협찬 중심</td></tr>
+      <tr><td>중간</td><td>5만</td><td class="s">300~500만원</td><td>협찬 + 커머스</td></tr>
+      <tr><td class="r">낙관</td><td class="s">15만+</td><td class="r">800만원+</td><td>전체 믹스</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">※ 라도 소속 유사 카테고리 크리에이터 데이터 기반 추정치입니다. 실제 수익은 성과에 따라 달라지며, 미팅 시 실제 케이스를 별도로 공유드려요.</p>
+</section>
+
+<!-- 06 TERMS -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 06 · TERMS</p>
+  <h2>계약 조건</h2>
+  <p class="sec-sub">부담을 최소화하는 방향으로 설계했습니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th>항목</th><th style="text-align:left">내용</th></tr></thead>
+    <tbody>
+      <tr><td class="s">계약 기간</td><td class="l">1년 단위 갱신 (상호 합의). 첫 3개월은 무료 트라이얼.</td></tr>
+      <tr><td class="s">수수료</td><td class="l">발생 수익의 25% (단일 요율). 추가 운영비·수수료 없음.</td></tr>
+      <tr><td class="s">독점 범위</td><td class="l">중국 플랫폼(샤오홍슈·더우인)만 해당. 인스타·유튜브는 완전 자유.</td></tr>
+      <tr><td class="s">콘텐츠 저작권</td><td class="l">봉주르하우스님 100% 소유. 계약 종료 시 번역·자막도 함께 인계.</td></tr>
+      <tr><td class="s">계정 소유권</td><td class="l">계정 소유자는 봉주르하우스님 본인. 라도는 운영 권한만 위임받음.</td></tr>
+      <tr><td class="s">정산 방식</td><td class="l">매월 정해진 날에 한국 계좌·원화 입금. 내역 투명 공개.</td></tr>
+      <tr><td class="s">해지 조건</td><td class="l">트라이얼 후 언제든 위약금 없이 30일 통보 해지 가능.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="risks">
+    <div class="rsk"><strong>기존 활동 영향 없음</strong><p>인스타·유튜브는 완전히 그대로. 추가 촬영도 필요 없습니다.</p></div>
+    <div class="rsk"><strong>3개월 무료 트라이얼</strong><p>맞지 않으면 비용·의무 없이 종료하실 수 있어요.</p></div>
+    <div class="rsk"><strong>톤 & 결 보호</strong><p>봉주르하우스님의 감성에 맞지 않는 협찬은 진행하지 않습니다.</p></div>
+    <div class="rsk"><strong>계정·저작권 완전 보호</strong><p>계정도 콘텐츠도 모두 본인 소유. 라도는 운영만 돕습니다.</p></div>
+  </div>
+</section>
+
+<!-- 07 NEXT STEP -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 07 · NEXT STEP</p>
+  <h2>다음 단계</h2>
+  <p class="sec-sub">진행하게 된다면 이런 순서예요.</p>
+  <div class="steps">
+    <div class="stp"><div class="n">01</div><div class="nm">연락</div><div class="d">궁금한 점이 있으시면 편하게</div></div>
+    <div class="stp"><div class="n">02</div><div class="nm">미팅</div><div class="d">운영 방식·실제 사례 공유</div></div>
+    <div class="stp"><div class="n">03</div><div class="nm">테스트</div><div class="d">기존 콘텐츠 3~5개 현지화</div></div>
+    <div class="stp"><div class="n">04</div><div class="nm">결정</div><div class="d">테스트 결과 확인 후 판단</div></div>
+  </div>
+  <h3 class="sub"><em>●</em> 마지막으로</h3>
+  <p class="b">이 제안서는 <em>가능성을 정리한 것</em>이지, 반드시 해야 한다는 이야기가 아닙니다. 봉주르하우스님이 쌓아 오신 것들은 이미 충분히 좋은 자산이에요.</p>
+  <p class="b">읽어봐 주셔서 감사합니다. 궁금한 점이 있으시면 부담 없이 연락 주세요.</p>
+  <div class="cta">
+    <h3>읽어봐 주셔서 감사합니다.</h3>
+    <p>본 제안서는 기밀 문서이며, 제안 대상자에게만 공유됩니다.</p>
+  </div>
+</section>
+
+<div class="footer">LADO ENTERTAINMENT · lado-ent.com</div>
+</div>
+</body>
+</html>
